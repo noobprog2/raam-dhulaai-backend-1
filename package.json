@@ -7,10 +7,14 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
+<<<<<<< HEAD
   "license": "ISC",
   "dependencies": {
     "express": "^4.18.2",
     "mongodb": "4.13",
     "mongoose": "^6.8.2"
   }
+=======
+  "license": "ISC"
+>>>>>>> b61e5d9 (First commit)
 }
