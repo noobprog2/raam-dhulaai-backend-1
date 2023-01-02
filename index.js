@@ -6,6 +6,7 @@ const app = require("express");
 
 const uri = "mongodb+srv://raamdhulaai:nepal123@cluster0.9pasa2c.mongodb.net/?retryWrites=true&w=majority";
 
+const PORT = 3000
 async function connect(){
 
     try{
@@ -19,9 +20,9 @@ async function connect(){
 
 connect();
 
-// app.listen(8000 , ( ) => {
-//     console.log("Server started on port 8000");
-// });
+app.listen(PORT , ( ) => {
+    console.log("Server started on port $PORT");
+});
 
 
 
