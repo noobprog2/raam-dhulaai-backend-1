@@ -1,6 +1,8 @@
 const {MongoClient} = require("mongodb");
 const mongoose = require("mongoose");
-const app = require("express");
+const express = require("express");
+
+const app = express();
 
 
 
@@ -19,15 +21,15 @@ async function connect(){
 }
 
 connect();
+app.get("/" , (req , res) => {
+    console.log("inside get")
+     res.send("Ashish")
+})
 
 app.listen(PORT , ( ) => {
     console.log("Server started on port $PORT");
 });
-// ashish
-//gaurab
-// app.listen(8000 , ( ) => {
-//     console.log("Server started on port 8000");
-// });
+
 
 
 
