@@ -20,14 +20,27 @@ async function connect(){
     
 }
 
+const route = express.Router();
 connect();
+
+const ashishRouter = require("./config/routes");
+const listenToGet = require("./config/server");
+
+app.get('/ashish' , ashishRouter)
+// listenToGet()
+
 app.get("/" , (req , res) => {
     console.log("inside get")
-     res.send("Ashish")
+     res.send({
+        "name": "Welcome to raam dhulaai",
+        "address" : "Imadol , Lalitpur"
+     })
 })
 
+
+
 app.listen(PORT , ( ) => {
-    console.log("Server started on port $PORT");
+    console.log("Server started on port " + PORT);
 });
 
 
