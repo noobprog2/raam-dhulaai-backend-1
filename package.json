@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "devStart" : "nodemon server.js"
+    "devStart": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.0.3",
+    "env": "^0.0.2",
     "express": "^4.18.2",
     "mongodb": "4.13",
     "mongoose": "^6.8.2"

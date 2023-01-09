@@ -1,18 +1,20 @@
-const {MongoClient} = require("mongodb");
+
 const mongoose = require("mongoose");
 const express = require("express");
-
+const dotenv = require('dotenv');
 const app = express();
 
 
+dotenv.config();
 
-const uri = "mongodb+srv://raamdhulaai:nepal123@cluster0.9pasa2c.mongodb.net/?retryWrites=true&w=majority";
+const PORT = process.env.PORT
+const uri = process.env.MONGO_URL;
 
-const PORT = 3000
 async function connect(){
 
     try{
-        await mongoose.connect(uri);
+
+        await mongoose.connect(uri , );
         console.log("connected to mongo db");
     }catch (e){
         console.error(e);
@@ -21,7 +23,7 @@ async function connect(){
 }
 
 const route = express.Router();
-connect();
+// connect();
 
 const ashishRouter = require("./config/routes");
 const listenToGet = require("./config/server");
