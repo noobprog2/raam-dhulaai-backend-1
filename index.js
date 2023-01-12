@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const express = require("express");
 const dotenv = require('dotenv');
 const app = express();
-const dbConnect = require("./config/database")
+const connect = require("./config/database")
 
 dotenv.config();
 
@@ -13,7 +13,7 @@ const uri = process.env.MONGO_URL;
 
 
 const route = express.Router();
-dbConnect.connect();
+connect.connect();
 
 const ashishRouter = require("./config/routes");
 const listenToGet = require("./config/server");
