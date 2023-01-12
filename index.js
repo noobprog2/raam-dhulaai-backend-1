@@ -3,27 +3,17 @@ const mongoose = require("mongoose");
 const express = require("express");
 const dotenv = require('dotenv');
 const app = express();
-
+const dbConnect = require("./config/database")
 
 dotenv.config();
 
 const port = process.env.PORT ;
 const uri = process.env.MONGO_URL;
 
-async function connect(){
 
-    try{
-
-        await mongoose.connect(uri );
-        console.log("connected to mongo db");
-    }catch (e){
-        console.error(e);
-    }
-    
-}
 
 const route = express.Router();
-connect();
+dbConnect.connect();
 
 const ashishRouter = require("./config/routes");
 const listenToGet = require("./config/server");
