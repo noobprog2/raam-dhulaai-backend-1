@@ -1,5 +1,5 @@
 // const mongoose = require('mongoose');
-import mongoose from "mongoose"
+import mongoose, { mongo } from "mongoose"
 
 
 const userSchema = new mongoose.Schema({
@@ -15,6 +15,9 @@ const userSchema = new mongoose.Schema({
     phone: Stirng, 
     password: {
         type: String,
-        reuired :true,
+        required :true,
     },
 })
+
+
+module.exports = mongoose.model("User" , userSchema)

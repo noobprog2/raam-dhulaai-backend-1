@@ -1,5 +1,3 @@
-
-
 const mongoose = require("mongoose");
 
 
@@ -10,7 +8,5 @@ const SliderModelSchema = mongoose.Schema({
         required: true,
     },
     title: String,
-
-    
 
 });
