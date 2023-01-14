@@ -37,4 +37,16 @@ router.post("/" , async (req , res) => {
     console.log(req.body);    
 });
 
+router.get("/:name" , async(req ,res) => {
+
+
+    try{
+        const user = await User.find({ name : req.params.name});
+        res.json(user);
+    }catch (e){
+        res.json({message: e});
+    }
+
+})
+
 module.exports = router;
