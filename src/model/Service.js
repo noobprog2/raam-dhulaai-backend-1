@@ -18,4 +18,4 @@ const ServiceCategorySchema = mongoose.Schema({
 
 })
 
-module.exports.ServiceSchema = ServiceSchema;
+module.exports = mongoose.model("ServiceCategory" , ServiceCategorySchema);

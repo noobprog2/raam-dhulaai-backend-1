@@ -18,6 +18,9 @@ connect.connect();
 const ashishRouter = require("./config/routes");
 const userRouter = require("./src/routes/user_route");
 const listenToGet = require("./config/server");
+const bodyParser = require("body-parser");
+
+app.use(bodyParser.json());
 
 app.get('/ashish' , ashishRouter)
 app.use('/user', userRouter)
