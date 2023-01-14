@@ -14,7 +14,14 @@ const ServiceCategorySchema = mongoose.Schema({
     description: {
         type: String, 
         default: null,
+    },
+    price:{
+
+        type: String,
+        default: null,
     }
+    
+
 
 })
 
