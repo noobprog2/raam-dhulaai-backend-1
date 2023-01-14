@@ -16,9 +16,12 @@ const route = express.Router();
 connect.connect();
 
 const ashishRouter = require("./config/routes");
+const userRouter = require("./src/routes/user_route");
 const listenToGet = require("./config/server");
 
 app.get('/ashish' , ashishRouter)
+app.use('/user', userRouter)
+
 // listenToGet()
 
 app.get("/" , (req , res) => {

@@ -1,1 +1,0 @@
-const userSchema = mongooes.userSchema();

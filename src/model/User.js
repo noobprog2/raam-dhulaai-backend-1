@@ -1,5 +1,5 @@
-// const mongoose = require('mongoose');
-import mongoose, { mongo } from "mongoose"
+const mongoose = require('mongoose');
+// import mongoose, { mongo } from "mongoose"
 
 
 const userSchema = new mongoose.Schema({
@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
         type : String ,
         required: true
     },
-    phone: Stirng, 
+    phone: String, 
     password: {
         type: String,
         required :true,
