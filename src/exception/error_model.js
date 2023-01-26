@@ -1,7 +1,20 @@
 
 
-export default class CustomError extends Error{
-    constructor(message , option){
-        super(message , option);
+
+class ErrorModel extends Error{
+    constructor(errorTitle , message , statusCode){
+        super(errorTitle , message , statusCode);
+        this.errorTitle = errorTitle;
+        this.message = message; 
+        this.statusCode = statusCode;
     }
+
 }
+
+
+module.exports = ErrorModel;
+
+
+
+
+

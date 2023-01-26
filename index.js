@@ -4,6 +4,7 @@ const express = require("express");
 const dotenv = require('dotenv');
 const app = express();
 const connect = require("./config/database")
+const CustomErrorHandler = require("./src/middleware/error_handler")
 
 dotenv.config();
 
@@ -35,7 +36,7 @@ app.get("/" , (req , res) => {
      })
 })
 
- 
+app.use(CustomErrorHandler); 
 
 app.listen(port , ( ) => {
     console.log("Server started on port " + port);
