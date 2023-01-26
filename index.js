@@ -20,12 +20,12 @@ const ashishRouter = require("./config/routes");
 const userRouter = require("./src/routes/user_route");
 const listenToGet = require("./config/server");
 const bodyParser = require("body-parser");
-
+const authRouter= require("./src/routes/auth_route");
 app.use(bodyParser.json());
 
-app.get('/ashish' , ashishRouter)
+//app.get('/ashish' , ashishRouter)
 app.use('/user', userRouter)
-
+app.use('/auth', authRouter);
 // listenToGet()
 
 app.get("/" , (req , res) => {
@@ -36,7 +36,7 @@ app.get("/" , (req , res) => {
      })
 })
 
-app.use(CustomErrorHandler); 
+//app.use(CustomErrorHandler); 
 
 app.listen(port , ( ) => {
     console.log("Server started on port " + port);
