@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 // import mongoose, { mongo } from "mongoose"
 
-
+//practicing 
 const userSchema = new mongoose.Schema({
     name: {
         type: String , 
