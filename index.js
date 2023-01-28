@@ -8,7 +8,7 @@ const CustomErrorHandler = require("./src/middleware/error_handler")
 
 dotenv.config();
 
-const port = process.env.PORT ;
+
 const uri = process.env.MONGO_URL;
 
 
@@ -38,11 +38,7 @@ app.get("/" , (req , res) => {
 
 //app.use(CustomErrorHandler); 
 
-app.listen(port , ( ) => {
-    console.log("Server started on port " + port);
-});
 
 
-
-
+module.exports=app;
 

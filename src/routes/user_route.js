@@ -1,7 +1,7 @@
 const express  = require("express");
 const router = express.Router();
-const User = require("../model/User")
-const bodyParser = require("body-parser")
+const User = require("../model/User");
+const bodyParser = require("body-parser");
 const gravatar = require('gravatar');   
 const{ check, validationResult}= require ('express-validator');
 const bcrypt = require('bcryptjs');
