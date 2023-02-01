@@ -1,29 +1,22 @@
 
 const mongoose = require("mongoose");
 const express = require("express");
-const dotenv = require('dotenv');
+
 const app = express();
 const CustomErrorHandler = require("./src/middleware/error_handler")
-const route = express.Router();
-const ashishRouter = require("./config/routes");
-const userRouter = require("./src/routes/user_route");
-const listenToGet = require("./config/server");
-const bodyParser = require("body-parser");
-const authRouter= require("./src/routes/auth_route");
-app.use(bodyParser.json());
-//app.get('/ashish' , ashishRouter)
-app.use('/user', userRouter)
-app.use('/auth', authRouter);
-// listenToGet()
-app.get("/" , (req , res) => {
-    console.log("inside get")
-     res.send({
-        "name": "Welcome to rajjjam dhulaai",
-        "address" : "Imadol , Lalitpur"
-     })
-})
 
-//app.use(CustomErrorHandler); 
+
+const userRouter = require("./src/routes/user_route");
+
+const bodyParser = require("body-parser");
+const authRouter= require("./src/routes/auth_route"); 
+app.use(bodyParser.json());
+
+app.use('/user', userRouter);
+
+
+
+
 
 
 
