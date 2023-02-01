@@ -1,4 +1,4 @@
-const jwt = require('jsonwebtoken');
+/*const jwt = require('jsonwebtoken');
 const config = require('config');
 
 module.exports = function (req, res, next) {
@@ -24,4 +24,4 @@ module.exports = function (req, res, next) {
     console.error('something wrong with auth middleware');
     res.status(500).json({ msg: 'Server Error' });
   }
-};
+};*/

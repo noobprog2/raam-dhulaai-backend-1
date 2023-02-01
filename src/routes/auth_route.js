@@ -1,4 +1,4 @@
-const express= require ('express');
+/*const express= require ('express');
 const router = express.Router();
 const auth = require ('../middleware/auth');
 const User= require('../model/User');
@@ -77,4 +77,4 @@ router.post(
 
 );
 
-module.exports = router;
+module.exports = router;*/
