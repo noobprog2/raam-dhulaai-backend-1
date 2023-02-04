@@ -35,14 +35,14 @@ const userSchema = new mongoose.Schema({
             message: 'Passwords are not the same!'
         }
     },
+    passwordChangedAt: 
+        Date,
+
     avatar:{
         type:String
-    },
-    date:{
-        type:Date,
-        default: Date.now
     }
-})
+    
+});
 userSchema.pre('save', async function(next){
     // Oly run this function if password was actually modified
     if (!this.isModified('password'))return next();
@@ -60,7 +60,15 @@ userSchema.methods.correctPassword = async function
     return await bcrypt.compare(candidatePassword, userPassword);
 };
 
-
+userSchema.methods.changedPasswordAfter = function(JWTTimestamp){
+    if(this.passwordChangedAt){
+        const changedTimestamp = parseInt(this. passwordChangedAt.getTime()/1000,10);
+        console.log(changedTimestamp, JWTTimestamp);
+        return JWTTimestamp< changedTimestamp;
+    }
+    //if false then not changed
+    return false;
+};
 
 
 
