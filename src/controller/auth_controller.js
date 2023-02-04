@@ -17,7 +17,8 @@ const signToken = id => {
           email: req.body.email,
           password: req.body.password,
           passwordConfirm: req.body.passwordConfirm ,
-          passwordChangedAt: req.body.passwordChangedAt
+          passwordChangedAt: req.body.passwordChangedAt,
+          role: req.body.role
         });
         const token = signToken(newUser.id) ;
         
@@ -92,3 +93,14 @@ const decoded=await promisify(jwt.verify)(token, process.env.JWT_SECRET);
 
     next();
 });
+
+exports.restrictTo = (...roles) => {
+    return(req,res,next)=>{
+        if(!roles.includes(req.user.role)){
+            return next(new AppError('You do not have permission to perform this action',403))
+        }
+
+        next();
+
+    }
+}

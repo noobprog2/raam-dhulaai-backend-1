@@ -17,7 +17,10 @@ router
   .route('/:id')
   .get(user_controller.getUser)
   .patch(user_controller.updateUser)
-  .delete(user_controller.deleteUser);
+  .delete(
+    auth_controller.protect,
+    auth_controller.restrictTo('admin'),
+    user_controller.deleteUser);
 
 
 
