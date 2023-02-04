@@ -8,6 +8,9 @@ const router = express.Router();
 
 router.post('/signup',auth_controller.signup); 
 router.post('/login',auth_controller.login); 
+router.post('/forgotPassword',auth_controller.forgotPassword); 
+router.patch('/resetPassword/:token',auth_controller.resetPassword); 
+
 router
   .route('/')
   .get(auth_controller.protect,user_controller.getAllUsers)
@@ -17,7 +20,10 @@ router
   .route('/:id')
   .get(user_controller.getUser)
   .patch(user_controller.updateUser)
-  .delete(user_controller.deleteUser);
+  .delete(
+    auth_controller.protect,
+    auth_controller.restrictTo('admin'),
+    user_controller.deleteUser);
 
 
 
