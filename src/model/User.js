@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const validator = require('validator');
 const bcrypt = require('bcryptjs');
 // import mongoose, { mongo } from "mongoose"
-
+//binod
 //practicing 
 const userSchema = new mongoose.Schema({
     name: {
