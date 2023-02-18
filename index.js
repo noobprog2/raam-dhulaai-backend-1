@@ -13,6 +13,7 @@ const userRouter = require("./src/routes/user_route");
 const hpp = require('hpp');
 const bodyParser = require("body-parser");
 const authRouter= require("./src/routes/auth_route"); 
+const serviceRouter = require("./src/routes/service_route");
 //for setting security HTTP headers
 app.use(helmet())
 
@@ -60,7 +61,7 @@ app.use ((req,res,next)=>{
 
 })
 app.use('/user', userRouter);
-
+app.use('/service',serviceRouter);
 
 app.all('*', (req, res, next) => {
     next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
