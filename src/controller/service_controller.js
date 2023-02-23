@@ -37,13 +37,13 @@ exports.getAllServices = async (req, res) => {
 
 exports.getService = async (req, res) => {
   try {
-    const Service = await Service.findById(req.params.id);
-    // Service.findOne({ _id: req.params.id })
+    const Services = await Service.findById(req.params.id);
+    
 
     res.status(200).json({
       status: 'success',
       data: {
-        Service
+        Services
       }
     });
   } catch (err) {
@@ -77,7 +77,7 @@ exports.createService = async (req, res) => {
 
 exports.updateService = async (req, res) => {
   try {
-    const Service = await Service.findByIdAndUpdate(req.params.id, req.body, {
+    const Services = await Service.findByIdAndUpdate(req.params.id, req.body, {
       new: true,
       runValidators: true
     });
@@ -85,7 +85,7 @@ exports.updateService = async (req, res) => {
     res.status(200).json({
       status: 'success',
       data: {
-        Service
+        Services
       }
     });
   } catch (err) {

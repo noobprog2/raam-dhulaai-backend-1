@@ -23,12 +23,13 @@ const ServiceCategorySchema = mongoose.Schema({
     title: String ,
     description: {
         type: String, 
+        trim:true,
         default: null,
     },
-    //imageCover: {
-       // type: String,
+    imageCover: {
+        type: String,
        // required: [true, 'A service must have a cover image']
-     // },
+     },
     price: {
         type: Number,
         required: [true, 'A service must have a price']
@@ -38,14 +39,15 @@ const ServiceCategorySchema = mongoose.Schema({
         default: Date.now(),
         select: false
       },
-      startDates: [Date],
-      ratingsAverage: {
+     
+      ratingsAverage: { 
         type: Number,
         default: 4.5,
         min: [1, 'Rating must be above 1.0'],
         max: [5, 'Rating must be below 5.0'],
         set: val => Math.round(val * 10) / 10 // 4.666666, 46.6666, 47, 4.7
       },
+      images:[String]
 
 
 })
