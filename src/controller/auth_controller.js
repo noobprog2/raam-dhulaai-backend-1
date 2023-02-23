@@ -55,22 +55,13 @@ const createSendToken = (user, statusCode, res) => {
             if (!email || !password) {
                  return next(new AppError('Please provide email and password!', 400));
             }
-                
-
-
-
-      
-            //check if user exists and password is correct 
+           //check if user exists and password is correct 
            const user = await User.findOne({email}).select('+password');
           
 
            if(!user || !await user.correctPassword(password, user.password)){
             return next(new AppError('Incorrect email or password',401));
            }
-           
-           
-           
-           
            //if everything ok, send token to client 
            createSendToken(user,200,res);
             
